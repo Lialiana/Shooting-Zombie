@@ -10,11 +10,11 @@ MENU_DELAY = 200
 
 BLACK = (  0,   0,   0)
 WHITE = (255, 255, 255)
-GREEN = ( 20, 180,  20)
+RED = ( 165,42,42)
 
 pygame.init()
 screen = pygame.display.set_mode( ( WIDTH, HEIGHT ) )
-pygame.display.set_caption( "Menuosity" )
+pygame.display.set_caption( "Main Menu" )
 
 font  = pygame.font.Font( None, 32 )  # font used to make menu Items
                 
@@ -64,10 +64,10 @@ class MenuItem:
 
 ### Create a Menu of Items
 menu = []
-menu.append( MenuItem( "First Item" ) )
-menu.append( MenuItem( "Second Item" ) )
-menu.append( MenuItem( "Third Item" ) )
-menu.append( MenuItem( "Fourth Item" ) )
+menu.append( MenuItem( "Play" ) )
+menu.append( MenuItem( "TuTorial" ) )
+menu.append( MenuItem( "Exit" ) )
+
 
 ### Highlight the first item
 current_option = 0
@@ -106,8 +106,9 @@ while True:
             menu[current_option].makeSelected( True )
             next_change_time = time_now + MENU_DELAY  # remember the time of the change
 
+
     # paint the screen
-    screen.fill( GREEN )  # paint background
+    screen.fill(RED )  # paint background
 
     # Paint the menu
     for item in menu:

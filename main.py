@@ -12,4 +12,3 @@ clock = pygame.time.Clock()
 FPS = 100
 
 #images**************
-zombie

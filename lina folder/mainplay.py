@@ -1,5 +1,5 @@
 
-import pygame
+import pygame, sys, os, time
 import button
 from pygame.locals import *
 import math
@@ -42,6 +42,26 @@ video_button = button.Button(226, 75, video_img, 1)
 audio_button = button.Button(225, 200, audio_img, 1)
 keys_button = button.Button(246, 325, keys_img, 1)
 back_button = button.Button(332, 450, back_img, 1)
+
+def game_over():
+    game_over_text = font.render(f"GAME OVER", True, (200,200,200))
+    screen.blit(game_over_text, (SCREEN_WIDTH/2), (SCREEN_HEIGHT/2))
+    screen.fill((52, 78,91))
+    pygame.display.update()
+    time.sleep(100000)
+    pygame.quite()
+
+
+    
+
+    
+    for character in all_sprites:
+        character.kill()
+    
+    pygame.display.update()
+    time.sleep(5)
+    pygame.quit()
+    sys.exit()
 
 def draw_text(text, font, text_col, x, y):
   img = font.render(text, True, text_col)
@@ -101,7 +121,7 @@ while run:
       gameover = pygame.image.load("lina folder/images/gameover.png")
       youwin = pygame.image.load("lina folder/images/youwin.png")
 
-      # 
+      
       player_width = player.get_width()/2
 
       hit = pygame.mixer.Sound("lina folder/sounds/mixkit-complex-desire-1093.mp3")
@@ -113,7 +133,7 @@ while run:
       pygame.mixer.music.load('lina folder/sounds/jump.mp3') 
       pygame.mixer.music.play(-1, 0.0)
       pygame.mixer.music.set_volume(0.25)
-
+        
 
  
       running = 1
@@ -262,12 +282,10 @@ while run:
           #10 - Win/Lose check
           # win
           if pygame.time.get_ticks()>=gametime:
-              running=0 
-              exitcode=1
+              game_over()
    
           if healthvalue<=0:
-              running=0 
-              exitcode=0
+              game_over()
           if acc[1]!=0:
               accuracy=acc[0]*1.0/acc[1]*100
           else:

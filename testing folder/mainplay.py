@@ -27,31 +27,31 @@ TEXT_COL = (0, 0, 0)
 
 #load button images
 play_img = pygame.image.load("testing folder/images/play_button.png").convert_alpha()
-settings_img = pygame.image.load("testing folder/images/setting_button.png").convert_alpha()
+settings_img = pygame.image.load("testing folder/images/settings_button.png").convert_alpha()
 about_img = pygame.image.load("testing folder/images/about_button.png").convert_alpha()
 quit_img = pygame.image.load("testing folder/images/quit_button.png").convert_alpha()
-video_img = pygame.image.load('testing folder/images/button_video.png').convert_alpha()
-audio_img = pygame.image.load('testing folder/images/button_audio.png').convert_alpha()
-keys_img = pygame.image.load('testing folder/images/button_keys.png').convert_alpha()
-back_img = pygame.image.load('testing folder/images/button_back.png').convert_alpha()
+# video_img = pygame.image.load('testing folder/images/button_video.png').convert_alpha()
+# audio_img = pygame.image.load('testing folder/images/button_audio.png').convert_alpha()
+#keys_img = pygame.image.load('testing folder/images/button_keys.png').convert_alpha()
+back_img = pygame.image.load('testing folder/images/back_button.png').convert_alpha()
 
 #create button instances
 play_button = button.Button(230, 90, play_img, 1)
 settings_button = button.Button(230, 180, settings_img, 1)
 about_button = button.Button(230,270, about_img, 1)
 quit_button = button.Button(230, 360, quit_img, 1) 
-video_button = button.Button(230, 75, video_img, 1)
-audio_button = button.Button(230, 150, audio_img, 1)
-keys_button = button.Button(230, 225, keys_img, 1)
+# video_button = button.Button(230, 75, video_img, 1)
+# audio_button = button.Button(230, 150, audio_img, 1)
+# keys_button = button.Button(230, 225, keys_img, 1)
 back_button = button.Button(230, 300, back_img, 1)
 
 def game_over():
-    game_over_text = font.render(f"GAME OVER", True, (200,200,200))
+    game_over_text = font.render(f"GAME OVER", True, TEXT_COL)
     screen.blit(game_over_text, (SCREEN_WIDTH/2), (SCREEN_HEIGHT/2))
-    screen.fill((52,78,91))
+    screen.fill((50,70,90))
     pygame.display.update()
-    time.sleep(10)
-    pygame.quite()
+    time.sleep(5)
+    pygame.quit()
 
     for character in badguys:
         character.kill()
@@ -87,7 +87,6 @@ while run:
         run = False
 
     if menu_state == "play":
-
       pygame.init()
       pygame.mixer.init() 
       width, height = 640, 480
@@ -95,24 +94,22 @@ while run:
       keys = [False, False, False, False]
       playerpos=[150,100]
       acc=[0,0] 
-      arrows=[] 
+      arrows=[]  # empty list 
 
-      gametime = 90000
+      gametime = 60000
 
 
       badtimer=100
       badtimer1=0
-      badguys=[[1100,146]]
-      healthvalue=194
-
+      badguys=[[640,146]]
+      healthvalue=200     #194
 
 
       player = pygame.image.load("testing folder/images/player01.png")
-      grass = pygame.image.load("testing folder/images/grass.png")
-      castle = pygame.image.load("testing folder/images/brain.png")
+      bg = pygame.image.load("testing folder/images/zombie_bg1.png")
+      brain = pygame.image.load("testing folder/images/br.png")
       arrow = pygame.image.load("testing folder/images/bullet.png")
       badguyimg1 = pygame.image.load("testing folder/images/zom01.png")
-
       badguyimg=badguyimg1
 
       healthbar = pygame.image.load("testing folder/images/healthbar.png")
@@ -135,7 +132,6 @@ while run:
       pygame.mixer.music.set_volume(0.25)
         
 
- 
       running = 1
       exitcode = 0
 
@@ -145,14 +141,14 @@ while run:
   
           screen.fill(0)
 
-          for x in range(width//grass.get_width()+1):
-              for y in range(height//grass.get_height()+1):
-                  screen.blit(grass,(x*100,y*100))
+          for x in range(width//bg.get_width()+1):
+              for y in range(height//bg.get_height()+1):
+                  screen.blit(bg,(x*100,y*100))
 
-          screen.blit(castle,(0,30))
-          screen.blit(castle,(0,120))
-          screen.blit(castle,(0,230))
-          screen.blit(castle,(0,345 ))
+          screen.blit(brain,(0,30))
+          screen.blit(brain,(0,120))
+          screen.blit(brain,(0,230))
+          screen.blit(brain,(0,345))
 
           position = pygame.mouse.get_pos()
           angle = math.atan2(position[1]-(playerpos[1]+12),position[0]-(playerpos[0]+6))
@@ -219,8 +215,8 @@ while run:
 
   
           font = pygame.font.Font(None, 24)
- 
-          survivedtext = font.render(str((gametime-pygame.time.get_ticks())//60000) + ":" + str((gametime-pygame.time.get_ticks())//1000%60).zfill(2), True, (0,0,0))
+ # 60000
+          survivedtext = font.render(str((gametime-pygame.time.get_ticks())//6000) + ":" + str((gametime-pygame.time.get_ticks())//1000%60).zfill(2), True, (255,255,255))
           textRect = survivedtext.get_rect()
           textRect.topright=[(width-5),5]
           screen.blit(survivedtext, textRect)
@@ -236,7 +232,8 @@ while run:
           for event in pygame.event.get():
  
               if event.type==pygame.QUIT:
-       
+                # add new
+                  running = False
                   pygame.quit() 
                   exit(0)
 
@@ -312,25 +309,26 @@ while run:
       while 1:
           for event in pygame.event.get():
               if event.type == pygame.QUIT:
+                  # running = False
                   pygame.quit()
-                  exit(0)
+                # add sys 
+                  sys.exit(0)
     pygame.display.flip()
 
 
     if menu_state == "about":
       if back_button.draw(screen):
-        print("About this game!!!")
         menu_state = "main"
 
     if menu_state == "settings":
-      if video_button.draw(screen):
-        print("Video Settings")
-      if audio_button.draw(screen):
-        print("Audio Settings")
-      if keys_button.draw(screen):
-        print("Change Key Bindings")
+      #if video_button.draw(screen):
+        #print("Video Settings")
+      #if audio_button.draw(screen):
+        #print("Audio Settings")
+      #if keys_button.draw(screen):
+        #print("Change Key Bindings")
       if back_button.draw(screen):
-        menu_state = "main"
+        menu_state = "main" 
   else:
     draw_text("Press space button to pause", font, TEXT_COL, 140, 250)
 

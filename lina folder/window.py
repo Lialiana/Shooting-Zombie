@@ -9,7 +9,7 @@ import random
 # 2 - Initialize the game
 pygame.init()
 pygame.mixer.init() # for sounds and music
-width, height = 1100, 700
+width, height = 640, 480
 screen=pygame.display.set_mode((width, height))
 keys = [False, False, False, False]
 playerpos=[150,100]
@@ -28,7 +28,7 @@ gametime = 90000
 # every frame until it is zero and then you spawn a new badger.
 badtimer=100
 badtimer1=0
-badguys=[[1100,146]]
+badguys=[[640,146]]
 healthvalue=194
 
 

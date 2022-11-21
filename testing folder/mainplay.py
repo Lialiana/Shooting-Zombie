@@ -40,10 +40,10 @@ play_button = button.Button(230, 90, play_img, 1)
 settings_button = button.Button(230, 180, settings_img, 1)
 about_button = button.Button(230,270, about_img, 1)
 quit_button = button.Button(230, 360, quit_img, 1) 
-video_button = button.Button(226, 75, video_img, 1)
-audio_button = button.Button(225, 200, audio_img, 1)
-keys_button = button.Button(246, 325, keys_img, 1)
-back_button = button.Button(332, 450, back_img, 1)
+video_button = button.Button(230, 75, video_img, 1)
+audio_button = button.Button(230, 150, audio_img, 1)
+keys_button = button.Button(230, 225, keys_img, 1)
+back_button = button.Button(230, 300, back_img, 1)
 
 def game_over():
     game_over_text = font.render(f"GAME OVER", True, (200,200,200))
@@ -317,10 +317,12 @@ while run:
     pygame.display.flip()
 
 
+    if menu_state == "about":
+      if back_button.draw(screen):
+        print("About this game!!!")
+        menu_state = "main"
 
-
-    if menu_state == "options":
-
+    if menu_state == "settings":
       if video_button.draw(screen):
         print("Video Settings")
       if audio_button.draw(screen):
@@ -330,7 +332,7 @@ while run:
       if back_button.draw(screen):
         menu_state = "main"
   else:
-    draw_text("Press space button to pause", font, TEXT_COL, 160, 250)
+    draw_text("Press space button to pause", font, TEXT_COL, 140, 250)
 
 
   for event in pygame.event.get():

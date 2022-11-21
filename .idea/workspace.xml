@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0ef42a8a-b250-4802-9c2e-71af43885ed4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/lina folder/button.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lina folder/font.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lina folder/images/Thumbs.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lina folder/images/badguy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lina folder/images/badguy2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lina folder/images/badguy3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lina folder/images/badguy4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lina folder/images/br.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lina folder/images/brain.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lina folder/images/bullet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lina folder/images/bun.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lina folder/images/button_audio.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lina folder/images/button_back.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lina folder/images/button_keys.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lina folder/images/button_options.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lina folder/images/button_quit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lina folder/images/button_resume.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lina folder/images/button_video.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lina folder/images/castle.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lina folder/images/dude.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lina folder/images/dude.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lina folder/images/dude2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lina folder/images/gameover.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lina folder/images/grass.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lina folder/images/health.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lina folder/images/healthbar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lina folder/images/player01.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lina folder/images/red.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lina folder/images/youwin.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lina folder/images/zom.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lina folder/images/zom01.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lina folder/mainplay.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lina folder/menu01.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lina folder/sounds/Ultramariny_-_Gimn_Ultramarinov_66625730.ogg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lina folder/sounds/bullet.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lina folder/sounds/ghost_shot.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lina folder/sounds/grenade blast.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lina folder/sounds/grenade throw.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lina folder/sounds/health.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lina folder/sounds/jump.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lina folder/sounds/jump2.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lina folder/sounds/level.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lina folder/sounds/lose.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lina folder/sounds/menu.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lina folder/sounds/mixkit-complex-desire-1093.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lina folder/sounds/point.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lina folder/sounds/vyigruzili-nenujnyiy-metall.ogg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lina folder/sounds/vyistrel-iz-avtomata-ocheredyu.ogg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lina folder/sounds/win.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lina folder/window.py" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="lina" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2HaI6YTOcQgj7T5FB4mMXXXoXkj" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0ef42a8a-b250-4802-9c2e-71af43885ed4" name="Changes" comment="" />
+      <created>1668516594133</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1668516594133</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

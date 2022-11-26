@@ -22,17 +22,17 @@ menu_state = "main"
 #define fonts
 font = pygame.font.SysFont("testing folder/font.ttf", 40)
 
-#define colours
+# define colours
 TEXT_COL = (0, 0, 0)
 
-#load button images
+# load button images
 play_img = pygame.image.load("testing folder/images/play_button.png").convert_alpha()
 settings_img = pygame.image.load("testing folder/images/settings_button.png").convert_alpha()
 about_img = pygame.image.load("testing folder/images/about_button.png").convert_alpha()
 quit_img = pygame.image.load("testing folder/images/quit_button.png").convert_alpha()
 # video_img = pygame.image.load('testing folder/images/button_video.png').convert_alpha()
 # audio_img = pygame.image.load('testing folder/images/button_audio.png').convert_alpha()
-#keys_img = pygame.image.load('testing folder/images/button_keys.png').convert_alpha()
+# keys_img = pygame.image.load('testing folder/images/button_keys.png').convert_alpha()
 back_img = pygame.image.load('testing folder/images/back_button.png').convert_alpha()
 
 #create button instances

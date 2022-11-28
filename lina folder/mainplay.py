@@ -52,11 +52,7 @@ def game_over():
     pygame.quite()
 
 
-    
 
-    
-    for character in all_sprites:
-        character.kill()
     
     pygame.display.update()
     time.sleep(5)

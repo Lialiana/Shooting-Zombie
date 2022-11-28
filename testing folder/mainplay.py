@@ -45,6 +45,9 @@ quit_button = button.Button(230, 360, quit_img, 1)
 # keys_button = button.Button(230, 225, keys_img, 1)
 back_button = button.Button(230, 300, back_img, 1)
 
+#color
+white = (255,255,255)
+black = (0,0,0)
 def game_over():
     
     '''game_over_text = font.render(f"GAME OVER", True, TEXT_COL)
@@ -57,11 +60,32 @@ def game_over():
     for character in badguys:
         character.kill()'''
 
-    
+def text_objects(text,color):
+    textSurface = font.render(text, True, color)
+    return textSurface, textSurface.get_rect()
+
+def message_to_screen(msg,color,y_displace=0): 
+    textSurf,textRect = text_objects(msg,color)
+    textRect.center = (SCREEN_HEIGHT/2), (SCREEN_WIDTH/2)
+    screen.blit(textSurf, textRect)
+
 def draw_text(text, font, text_col, x, y):
   img = font.render(text, True, text_col)
   screen.blit(img, (x, y)) 
+#iamge
 
+
+
+def game_over():
+    game_over_text = font.render(f"GAME OVER.", True, (200,200,200))
+   
+    screen.fill((255, 255, 255))
+    screen.blit(game_over_text, (SCREEN_WIDTH/2 - (game_over_text.get_width()/2), SCREEN_HEIGHT/2 - game_over_text.get_height()/2))
+    pygame.display.update()
+    time.sleep(5)
+    pygame.quit()
+    sys.exit()
+   
 #game loop
 run = True
 while run:
@@ -170,21 +194,18 @@ while run:
                   screen.blit(arrow1, (projectile[1], projectile[2]))
 
           if badtimer==0:
-              # badguys.append([width, random.randint(50,(height-50))])
-              badguys.append([640, random.randint(50, 430)])
-              #100
-              badtimer=300-(badtimer1*0.5)
+              badguys.append([width, random.randint(50,(height-50))])
+              badtimer=100-(badtimer1*2)
               if badtimer1>=35:
                   badtimer1=35
               else:
-                  badtimer1+=5
+                  badtimer1+=5 
           index=0
           
 
-          for badguy in list(badguys):
-              if badguy[0]<-64: 
-                badguys.remove(badguy)   
-                  # badguys.pop(index)
+          for badguy in badguys:
+              if badguy[0]<-64:    
+                  badguys.pop(index)
               badguy[0]-=7
 
       
@@ -195,27 +216,21 @@ while run:
                   hit.play() 
                   healthvalue -= random.randint(5,20)
                   # badguys.pop(index)
-                  badguys.remove(badguy)
+                  badguys.pop(index)
+            
               
 
               index1=0
-              for bullet in list(arrows):
+              for bullet in arrows:
                   bullrect=pygame.Rect(arrow.get_rect())
                   bullrect.left=bullet[1]
                   bullrect.top=bullet[2]
                   if badrect.colliderect(bullrect): 
                       enemy.play()
                       acc[0]+=1
-                      # index
-                      # badguys.pop(0) if badguys else False
-                      # False 
-                      badguys.remove(badguy)
-                      arrows.remove(bullet)
-                      arrows.pop(index1)
+        
+                      arrows.pop(index)
                   index1+=1
-            
-    
-              index+=1
 
           for badguy in badguys:
               screen.blit(badguyimg, badguy)
@@ -295,7 +310,8 @@ while run:
           # win
           if pygame.time.get_ticks()>=gametime:
               game_over()
-   
+
+ 
           if healthvalue<=0:
               game_over()
           if acc[1]!=0:
@@ -396,14 +412,10 @@ while run:
         menu_state = "main"
 
     if menu_state == "settings":
-      #if video_button.draw(screen):
-        #print("Video Settings")
-      #if audio_button.draw(screen):
-        #print("Audio Settings")
-      #if keys_button.draw(screen):
-        #print("Change Key Bindings")
+
+        
       if back_button.draw(screen):
-        menu_state = "main" 
+        menu_state = "main"
   else:
     draw_text("Press space button to pause", font, TEXT_COL, 140, 250)
 

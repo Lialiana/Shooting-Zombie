@@ -248,10 +248,10 @@ def game_over():
         elif event.type == pygame.MOUSEBUTTONDOWN:
             game_over = True
 
-    if not game_over:
-        rect_x += rect_change_x
-        rect += rect_change_y
-        if rect_y > 450
+    # if not game_over:
+        # rect_x += rect_change_x
+        # rect += rect_change_y
+        # if rect_y > 450
 
 
 

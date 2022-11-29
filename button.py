@@ -84,7 +84,7 @@ for i,item in enumerate( menu ):
 clock = pygame.time.Clock()
 next_change_time = 0  
 
-	def draw(self, surface):
+def draw(self, surface):
 		action = False
 
 		#get mouse position
@@ -95,13 +95,12 @@ next_change_time = 0
 			if pygame.mouse.get_pressed()[0] == 1 and self.clicked == False:
 				action = True
 				self.clicked = True
+            
+        # paint the screen
+screen.fill( GREEN )  # paint background
 
-    # paint the screen
-    screen.fill( GREEN )  # paint background
-
-		#draw button
-		surface.blit(self.image, (self.rect.x, self.rect.y))
-		if self.text:
-			self.image.blit(self.text, (self.width//2 - self.xoff, self.height//2 - self.yoff))
-
-		return action
+	    #draw button
+    surface.blit(self.image, (self.rect.x, self.rect.y))
+if self.text:
+    self.image.blit(self.text, (self.width//2 - self.xoff, self.height//2 - self.yoff))
+return action

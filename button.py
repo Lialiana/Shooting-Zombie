@@ -1,20 +1,23 @@
-# buttons
-
 import pygame
+import math 
 
-WIDTH = 500
-HEIGHT= 500
-FPS   = 60
+class Button():
+	def __init__(self,x, y, image, scale, text=None, xoff=None):
+		self.width = int(image.get_width() * scale)
+		self.height = int(image.get_height() * scale)
+		self.image = pygame.transform.scale(image, (self.width, self.height))
+		self.rect = self.image.get_rect()
+		self.rect.topleft = (x, y)
 
 MENU_DELAY = 200
 
 BLACK = (  0,   0,   0)
 WHITE = (255, 255, 255)
-RED = ( 165,42,42)
+GREEN = ( 20, 180,  20)
 
 pygame.init()
 screen = pygame.display.set_mode( ( WIDTH, HEIGHT ) )
-pygame.display.set_caption( "Main Menu" )
+pygame.display.set_caption( "Menuosity" )
 
 font  = pygame.font.Font( None, 32 )  # font used to make menu Items
                 
@@ -64,10 +67,10 @@ class MenuItem:
 
 ### Create a Menu of Items
 menu = []
-menu.append( MenuItem( "Play" ) )
-menu.append( MenuItem( "TuTorial" ) )
-menu.append( MenuItem( "Exit" ) )
-
+menu.append( MenuItem( "First Item" ) )
+menu.append( MenuItem( "Second Item" ) )
+menu.append( MenuItem( "Third Item" ) )
+menu.append( MenuItem( "Fourth Item" ) )
 
 ### Highlight the first item
 current_option = 0
@@ -81,38 +84,24 @@ for i,item in enumerate( menu ):
 clock = pygame.time.Clock()
 next_change_time = 0  
 
-###
-### MAIN
-###
-while True:
-    time_now = pygame.time.get_ticks()   # milliseconds elapsed time 
+	def draw(self, surface):
+		action = False
 
-    # Handle events
-    keys = pygame.key.get_pressed()
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            exit()
+		#get mouse position
+		pos = pygame.mouse.get_pos()
 
-    # if the user pressed [space]
-    if ( keys[pygame.K_SPACE] ):
-        # When space is pushed move to the next item, but not more than every 300ms
-        # So, has enough time elapsed since the last keypress?
-        if ( time_now > next_change_time ):
-            # enough time elapsed, un-select the current, and select the next menu-item
-            menu[current_option].makeSelected( False )    
-            current_option += 1
-            if ( current_option >= len( menu ) ):
-                current_option = 0
-            menu[current_option].makeSelected( True )
-            next_change_time = time_now + MENU_DELAY  # remember the time of the change
-
+		#check mouseover and clicked conditions
+		if self.rect.collidepoint(pos):
+			if pygame.mouse.get_pressed()[0] == 1 and self.clicked == False:
+				action = True
+				self.clicked = True
 
     # paint the screen
-    screen.fill(RED )  # paint background
+    screen.fill( GREEN )  # paint background
 
-    # Paint the menu
-    for item in menu:
-        item.draw( screen );
+		#draw button
+		surface.blit(self.image, (self.rect.x, self.rect.y))
+		if self.text:
+			self.image.blit(self.text, (self.width//2 - self.xoff, self.height//2 - self.yoff))
 
-    pygame.display.flip()
-    clock.tick( FPS )       # keep a sane frame-rate
+		return action

@@ -1,29 +1,36 @@
+# import library
 import pygame, sys, os, time
 from button import Button
 from pygame.locals import *
 import math
 import random
 
-pygame.init()
 
-SCREEN = pygame.display.set_mode((640, 480)) # 1280, 720
+# Intitialize the game
+pygame.init()
+width, height = 640, 480
+SCREEN = pygame.display.set_mode((width, height)) 
 pygame.display.set_caption("MAIN MENU")
 
+#  load background
 BG = pygame.image.load("testing 02 folder/assets/zombie_bg3.png")
-
+ 
+# set font
 def get_font(size): # Returns Press-Start-2P in the desired size
     return pygame.font.Font("testing 02 folder/assets/DalelandsUncialBold-82zA.ttf", 40)
 
-
+# 
 def main_play():
         width, height = 640, 480
         screen=pygame.display.set_mode((width, height))
         
+# after you set the screen height and width
         keys = [False, False, False, False]
-        playerpos=[100,100]
+        playerpos=[100,100] 
+
         acc=[0,0] 
         arrows= []
-        num_arrows = 500
+        num_arrows = 400
         timestart = pygame.time.get_ticks()  # added 
         gametime = 60000
         badtimer=100
@@ -31,7 +38,7 @@ def main_play():
         badguys=[[640,100]]
         healthvalue=194 # 194  
 
-
+# add scenery
         player = pygame.image.load("testing 02 folder/assets/soldier_silencer.png")
         bg = pygame.image.load("testing 02 folder/assets/zombie_bg1.png")
         brain = pygame.image.load("testing 02 folder/assets/military_tanks.png")
@@ -71,11 +78,13 @@ def main_play():
                 for y in range(height//bg.get_height()+1):
                     screen.blit(bg,(x*100,y*100))
 
+# before the player is drawn on screen
             screen.blit(brain,(0,10))
             screen.blit(brain,(0,120))
             screen.blit(brain,(0,230))
             screen.blit(brain,(0,345))
-
+            
+# set player position and rotation
             position = pygame.mouse.get_pos()
             angle = math.atan2(position[1]-(playerpos[1]+32),position[0]-(playerpos[0]+26)) 
             playerrot = pygame.transform.rotate(player, 360-angle*57.29)
@@ -84,7 +93,7 @@ def main_play():
 
 
             for bullet in list(arrows):   # added list
-                # index=0
+                index=0
                 velx=math.cos(bullet[0])*10
                 vely=math.sin(bullet[0])*10
                 bullet[1]+=velx
@@ -101,7 +110,7 @@ def main_play():
 
             if badtimer==0:
                 badguys.append([width, random.randint(50,(height-50))])
-                badtimer=200-(badtimer1*2)  #100 
+                badtimer=100-(badtimer1*2)  #100 
                 if badtimer1>=40:  # 35
                     badtimer1=40
                 else:
@@ -214,6 +223,8 @@ def play():
         PLAY_MOUSE_POS = pygame.mouse.get_pos()
         if play:
             main_play()
+        else:
+            game_over()
         # PLAY_MOUSE_POS = pygame.mouse.get_pos()
         # SCREEN.fill("black")
         SCREEN.blit(BG, (0, 0))
@@ -238,26 +249,26 @@ def play():
                     main_menu()
 
         pygame.display.update()
+        pygame.time.wait(5000)
 
+
+# ---------main progame of game over------------
+pygame.init()
+gameDisplay = pygame.display.set_mode((width, height))
+pygame.display.set_caption('Game Over')
+clock = pygame.time.Clock()
 game_over = False
 def game_over():
-   while not done:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            done = True
-        elif event.type == pygame.MOUSEBUTTONDOWN:
-            game_over = True
+    while not game_over:
+        for event in pygame.event.get():
+            if event.type == pygame.QUITE:
+                game_over = True
 
-    # if not game_over:
-        # rect_x += rect_change_x
-        # rect += rect_change_y
-        # if rect_y > 450
+            print(event)
 
+        pygame.display.update()
+        clock.tick(500)
 
-
-
-   
-    
 def options():
     while True:
         OPTIONS_MOUSE_POS = pygame.mouse.get_pos()
